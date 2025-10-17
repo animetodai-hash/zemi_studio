@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Nanafusa | スタッフ紹介</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- anime.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Noto Sans JP', sans-serif; background: linear-gradient(to bottom right, #7DD3FC, #F9A8D4); color: #fff; }
+    header { font-family: 'Poppins', sans-serif; }
+    .fade-in { opacity: 0; }
+    .hover-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(255,255,255,0.3); }
+    /* モーダル背景 */
+    .modal-bg { display: none; position: fixed; inset:0; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 50; }
+    .modal-content { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 1rem; max-width: 500px; }
+    .close-btn { cursor: pointer; font-weight: bold; color: #fff; float: right; }
+  </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+  <!-- ===== ヘッダー ===== -->
+  <header class="text-center py-8 fade-in">
+    <h1 class="text-4xl md:text-5xl font-bold mb-2">スタッフ紹介</h1>
+    <p class="text-white/90 text-lg">Studio Nanafusa の制作メンバー</p>
+  </header>
+
+  <!-- ===== スタッフカード ===== -->
+  <main class="flex-grow container mx-auto px-6 py-10 fade-in">
+    <div class="grid md:grid-cols-3 gap-10">
+      
+      <!-- スタッフ① -->
+      <div class="bg-white/20 backdrop-blur-md rounded-2xl overflow-hidden hover-card transition duration-300 text-center p-5">
+        <img src="assets/img/staff/member1.jpg" alt="スタッフ1" class="w-32 h-32 mx-auto rounded-full mb-3 object-cover">
+        <h3 class="text-xl font-bold mb-1">宮本 厚誠</h3>
+        <p class="text-white/90 mb-3">監督・脚本</p>
+        <button class="bg-white text-pink-500 font-bold px-4 py-2 rounded-full modal-open" data-member="1">詳細</button>
+      </div>
+
+      <!-- スタッフ② -->
+      <div class="bg-white/20 backdrop-blur-md rounded-2xl overflow-hidden hover-card transition duration-300 text-center p-5">
+        <img src="assets/img/staff/member2.jpg" alt="スタッフ2" class="w-32 h-32 mx-auto rounded-full mb-3 object-cover">
+        <h3 class="text-xl font-bold mb-1">佐藤 花子</h3>
+        <p class="text-white/90 mb-3">作画・キャラクターデザイン</p>
+        <button class="bg-white text-pink-500 font-bold px-4 py-2 rounded-full modal-open" data-member="2">詳細</button>
+      </div>
+
+      <!-- スタッフ③ -->
+      <div class="bg-white/20 backdrop-blur-md rounded-2xl overflow-hidden hover-card transition duration-300 text-center p-5">
+        <img src="assets/img/staff/member3.jpg" alt="スタッフ3" class="w-32 h-32 mx-auto rounded-full mb-3 object-cover">
+        <h3 class="text-xl font-bold mb-1">高橋 一郎</h3>
+        <p class="text-white/90 mb-3">編集・音響</p>
+        <button class="bg-white text-pink-500 font-bold px-4 py-2 rounded-full modal-open" data-member="3">詳細</button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ===== モーダル ===== -->
+  <div id="modal" class="modal-bg flex">
+    <div class="modal-content relative">
+      <span class="close-btn">&times;</span>
+      <h3 class="text-2xl font-bold mb-2" id="modal-name"></h3>
+      <p class="text-white/90 mb-2" id="modal-role"></p>
+      <p class="text-white/80" id="modal-desc"></p>
+    </div>
+  </div>
+
+  <!-- ===== フッター ===== -->
+  <footer class="text-center py-8 text-white/80 fade-in">
+    <a href="index.html" class="bg-white text-sky-500 font-bold px-6 py-2 rounded-full hover:bg-sky-100 transition">トップページへ</a>
+    <p class="mt-4">© 2025 Studio Nanafusa</p>
+  </footer>
+
+  <!-- ===== アニメーション & モーダル制御 ===== -->
+  <script>
+    // フェードイン
+    document.addEventListener("DOMContentLoaded", () => {
+      anime({
+        targets: '.fade-in',
+        opacity: [0,1],
+        translateY: [20,0],
+        delay: anime.stagger(200),
+        duration: 1000,
+        easing: 'easeOutQuad'
+      });
+    });
+
+    // スタッフ詳細モーダル
+    const staffData = {
+      1: { name: "宮本 厚誠", role: "監督・脚本", desc: "パイロットフィルムから制作まで全体を統括。企画・脚本も担当。" },
+      2: { name: "佐藤 花子", role: "作画・キャラクターデザイン", desc: "キャラクターデザイン・作画監修を担当。色彩設計も担当。" },
+      3: { name: "高橋 一郎", role: "編集・音響", desc: "映像編集と音響効果を担当。仕上げとBGM選定も行う。" }
+    };
+
+    const modal = document.getElementById('modal');
+    const modalName = document.getElementById('modal-name');
+    const modalRole = document.getElementById('modal-role');
+    const modalDesc = document.getElementById('modal-desc');
+
+    document.querySelectorAll('.modal-open').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.member;
+        const data = staffData[id];
+        modalName.textContent = data.name;
+        modalRole.textContent = data.role;
+        modalDesc.textContent = data.desc;
+        modal.style.display = 'flex';
+      });
+    });
+
+    document.querySelector('.close-btn').addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if(e.target === modal) modal.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

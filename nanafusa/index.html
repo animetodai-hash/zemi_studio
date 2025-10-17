@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Nanafusa | 作品紹介</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- anime.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: linear-gradient(to bottom right, #7DD3FC, #F9A8D4);
+      color: #fff;
+      min-height: 100vh;
+    }
+    header {
+      font-family: 'Poppins', sans-serif;
+    }
+    .fade-in {
+      opacity: 0;
+    }
+    .hover-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+  <!-- ===== ヘッダー ===== -->
+  <header class="text-center py-8 fade-in">
+    <h1 class="text-4xl md:text-5xl font-bold mb-2">Studio Nanafusa</h1>
+    <p class="text-white/90 text-lg">学生による自主制作アニメーションプロジェクト</p>
+  </header>
+
+  <!-- ===== メイン ===== -->
+  <main class="flex-grow container mx-auto px-6 py-10 fade-in">
+    <h2 class="text-2xl md:text-3xl font-semibold text-center mb-10">🎬 公開作品</h2>
+
+    <!-- カードグリッド -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <!-- カード① -->
+      <div class="bg-white/20 backdrop-blur-md rounded-2xl overflow-hidden hover-card transition duration-300">
+        <div class="aspect-video">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/ScMzIvxBSi4" title="アニメ作品1"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-2">『暁に咲く花』</h3>
+          <p class="text-white/90 text-sm mb-4">孤独な少女と機械の友達が、廃墟の街で希望を探す短編アニメーション。<br>制作期間：2024年4月〜2025年3月</p>
+          <a href="staff.html" class="inline-block mt-2 bg-white text-pink-500 font-bold px-5 py-2 rounded-full">スタッフを見る</a>
+        </div>
+      </div>
+
+      <!-- カード② -->
+      <div class="bg-white/20 backdrop-blur-md rounded-2xl overflow-hidden hover-card transition duration-300">
+        <div class="aspect-video">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/tgbNymZ7vqY" title="アニメ作品2"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-2">『水面の約束』</h3>
+          <p class="text-white/90 text-sm mb-4">消えた幼馴染を探す少年の幻想的な旅を描いた中編作品。幻想的な色彩と音楽が特徴。</p>
+          <a href="staff.html" class="inline-block mt-2 bg-white text-pink-500 font-bold px-5 py-2 rounded-full">スタッフを見る</a>
+        </div>
+      </div>
+
+      <!-- カード③ -->
+      <div class="bg-white/20 backdrop-blur-md rounded-2xl overflow-hidden hover-card transition duration-300">
+        <div class="aspect-video">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/LXb3EKWsInQ" title="アニメ作品3"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-2">『星屑の手紙』</h3>
+          <p class="text-white/90 text-sm mb-4">亡き父の手紙を追って旅をする少年少女の物語。手描き風の柔らかい映像美。</p>
+          <a href="staff.html" class="inline-block mt-2 bg-white text-pink-500 font-bold px-5 py-2 rounded-full">スタッフを見る</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== フッター ===== -->
+  <footer class="text-center py-8 text-white/80 text-sm fade-in">
+    <div class="mb-4">
+      <a href="join.html" class="bg-white text-sky-500 font-bold px-6 py-2 rounded-full hover:bg-sky-100 transition">スタッフ募集</a>
+    </div>
+    <p>© 2025 Studio Nanafusa</p>
+  </footer>
+
+  <!-- ===== アニメーション ===== -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      anime({
+        targets: '.fade-in',
+        opacity: [0, 1],
+        translateY: [20, 0],
+        delay: anime.stagger(200),
+        duration: 1000,
+        easing: 'easeOutQuad'
+      });
+    });
+  </script>
+</body>
+</html>

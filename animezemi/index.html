@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>東大アニメ研究ゼミ | トップページ</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- anime.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Noto Sans JP', sans-serif; background: linear-gradient(to bottom right, #7DD3FC, #F9A8D4); color: #fff; min-height: 100vh; }
+    header { font-family: 'Poppins', sans-serif; }
+    .fade-in { opacity: 0; }
+    .hover-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(255,255,255,0.3); }
+  </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+  <!-- ===== ヘッダー ===== -->
+  <header class="text-center py-12 fade-in">
+    <h1 class="text-4xl md:text-5xl font-bold mb-2">東大アニメ研究ゼミ</h1>
+    <p class="text-white/90 text-lg">学生とアニメ業界をつなぐ学びの場</p>
+  </header>
+
+  <!-- ===== メインセクション ===== -->
+  <main class="flex-grow container mx-auto px-6 py-10 fade-in">
+    <div class="grid md:grid-cols-2 gap-10">
+      
+      <!-- 活動紹介カード -->
+      <a href="events.html" class="hover-card bg-white/20 backdrop-blur-md rounded-2xl p-8 transition duration-300 text-center">
+        <h2 class="text-2xl font-bold mb-3 text-white">活動紹介</h2>
+        <p class="text-white/90">講演会、ビジネスコンテストなど、学生と業界の交流を紹介。</p>
+      </a>
+
+      <!-- 問い合わせカード -->
+      <a href="contact.html" class="hover-card bg-white/20 backdrop-blur-md rounded-2xl p-8 transition duration-300 text-center">
+        <h2 class="text-2xl font-bold mb-3 text-white">問い合わせ</h2>
+        <p class="text-white/90">ご質問やゼミ参加希望はこちらから。</p>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- ===== フッター ===== -->
+  <footer class="text-center py-8 text-white/80 fade-in">
+    <a href="../index.html" class="bg-white text-sky-500 font-bold px-6 py-2 rounded-full hover:bg-sky-100 transition">トップページへ</a>
+    <p class="mt-4">© 2025 東大アニメ研究ゼミ</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      anime({
+        targets: '.fade-in',
+        opacity: [0,1],
+        translateY: [20,0],
+        delay: anime.stagger(200),
+        duration: 1000,
+        easing: 'easeOutQuad'
+      });
+    });
+  </script>
+</body>
+</html>

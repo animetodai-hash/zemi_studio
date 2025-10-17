@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>東大アニメ研究ゼミ × Studio Nanafusa</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- anime.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: linear-gradient(to right, #7DD3FC, #F9A8D4);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .fade-in {
+      opacity: 0;
+    }
+
+    footer {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* ホバー時のアニメーション効果 */
+    .hover-glow:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== ヒーローセクション ===== -->
+  <header class="text-center py-16 fade-in">
+    <h1 class="hero-title text-4xl md:text-6xl mb-4">東大アニメ研究ゼミ × Studio Nanafusa</h1>
+    <p class="text-lg md:text-xl opacity-90">学生とアニメ業界の架け橋となる — 創造と学びの交差点へ</p>
+  </header>
+
+  <!-- ===== メイン選択エリア ===== -->
+  <main class="flex flex-col md:flex-row justify-center items-center gap-10 px-6 pb-16 fade-in">
+    <!-- 東大アニメ研究ゼミ -->
+    <a href="animezemi/index.html" 
+       class="hover-glow w-full md:w-1/3 bg-white/20 backdrop-blur-lg rounded-2xl p-8 text-center transition transform duration-300">
+      <h2 class="text-2xl md:text-3xl font-bold mb-3 text-white">東大アニメ研究ゼミ</h2>
+      <p class="text-white/90 mb-4">アニメ業界との交流・講演会・ビジネスコンテストなど</p>
+      <span class="inline-block bg-white text-sky-500 font-bold px-6 py-2 rounded-full">Enter</span>
+    </a>
+
+    <!-- Studio Nanafusa -->
+    <a href="nanafusa/index.html" 
+       class="hover-glow w-full md:w-1/3 bg-white/20 backdrop-blur-lg rounded-2xl p-8 text-center transition transform duration-300">
+      <h2 class="text-2xl md:text-3xl font-bold mb-3 text-white">Studio Nanafusa</h2>
+      <p class="text-white/90 mb-4">学生が手掛ける自主制作アニメーション公開サイト</p>
+      <span class="inline-block bg-white text-pink-500 font-bold px-6 py-2 rounded-full">Enter</span>
+    </a>
+  </main>
+
+  <!-- ===== フッター ===== -->
+  <footer class="text-center py-6">
+    <p>© 2025 東大アニメ研究ゼミ × Studio Nanafusa</p>
+  </footer>
+
+  <!-- ===== アニメーション ===== -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      anime({
+        targets: '.fade-in',
+        opacity: [0, 1],
+        translateY: [20, 0],
+        delay: anime.stagger(200),
+        duration: 1000,
+        easing: 'easeOutQuad'
+      });
+    });
+  </script>
+</body>
+</html>
