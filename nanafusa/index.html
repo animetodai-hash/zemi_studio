@@ -1,111 +1,83 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Studio Nanafusa | 作品紹介</title>
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- anime.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-  <!-- フォント -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Noto Sans JP', sans-serif;
-      background: linear-gradient(to bottom right, #7DD3FC, #F9A8D4);
-      color: #fff;
-      min-height: 100vh;
-    }
-    header {
-      font-family: 'Poppins', sans-serif;
-    }
-    .fade-in {
-      opacity: 0;
-    }
-    .hover-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
-    }
-  </style>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-
-<body class="flex flex-col min-h-screen">
-
-  <!-- ===== ヘッダー ===== -->
-  <header class="text-center py-8 fade-in">
-    <h1 class="text-4xl md:text-5xl font-bold mb-2">Studio Nanafusa</h1>
-    <p class="text-white/90 text-lg">学生による自主制作アニメーションプロジェクト</p>
+<body class="bg-gradient-to-br from-pink-100 via-white to-blue-100 text-gray-800 font-sans">
+  <!-- header -->
+  <header class="bg-gradient-to-r from-pink-400 to-blue-400 text-white py-4 shadow-md">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Studio Nanafusa</h1>
+      <nav class="space-x-4">
+        <a href="index.html" class="hover:underline">作品一覧</a>
+        <a href="staff.html" class="hover:underline">スタッフ</a>
+        <a href="join.html" class="hover:underline">参加希望</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- ===== メイン ===== -->
-  <main class="flex-grow container mx-auto px-6 py-10 fade-in">
-    <h2 class="text-2xl md:text-3xl font-semibold text-center mb-10">🎬 公開作品</h2>
+  <!-- main -->
+  <main class="container mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-8 text-center text-pink-500">🎬 作品ギャラリー</h2>
 
     <!-- カードグリッド -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-      <!-- カード① -->
-      <div class="bg-white/20 backdrop-blur-md rounded-2xl overflow-hidden hover-card transition duration-300">
-        <div class="aspect-video">
-          <iframe class="w-full h-full" src="https://www.youtube.com/embed/ScMzIvxBSi4" title="アニメ作品1"
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="p-5">
-          <h3 class="text-xl font-bold mb-2">『暁に咲く花』</h3>
-          <p class="text-white/90 text-sm mb-4">孤独な少女と機械の友達が、廃墟の街で希望を探す短編アニメーション。<br>制作期間：2024年4月〜2025年3月</p>
-          <a href="staff.html" class="inline-block mt-2 bg-white text-pink-500 font-bold px-5 py-2 rounded-full">スタッフを見る</a>
-        </div>
-      </div>
-
-      <!-- カード② -->
-      <div class="bg-white/20 backdrop-blur-md rounded-2xl overflow-hidden hover-card transition duration-300">
-        <div class="aspect-video">
-          <iframe class="w-full h-full" src="https://www.youtube.com/embed/tgbNymZ7vqY" title="アニメ作品2"
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="p-5">
-          <h3 class="text-xl font-bold mb-2">『水面の約束』</h3>
-          <p class="text-white/90 text-sm mb-4">消えた幼馴染を探す少年の幻想的な旅を描いた中編作品。幻想的な色彩と音楽が特徴。</p>
-          <a href="staff.html" class="inline-block mt-2 bg-white text-pink-500 font-bold px-5 py-2 rounded-full">スタッフを見る</a>
+    <div class="grid md:grid-cols-3 sm:grid-cols-2 gap-8">
+      <!-- カード1 -->
+      <div class="card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl transition" 
+           data-title="『桜の下で』" 
+           data-video="https://www.youtube.com/embed/dQw4w9WgXcQ"
+           data-intro="春の終わり、桜の下で出会った少年と少女。儚くも心に残る再会の物語。"
+           data-comment="背景美術と光表現にこだわり、淡い思い出を描き出しました。">
+        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+        <div class="p-4">
+          <h3 class="text-lg font-bold">『桜の下で』</h3>
+          <p class="text-sm mt-2">春の終わりに出会った少年と少女の、切ない一瞬の物語。</p>
+          <a href="staff.html" class="text-blue-500 hover:underline text-sm">スタッフ紹介へ</a>
         </div>
       </div>
 
-      <!-- カード③ -->
-      <div class="bg-white/20 backdrop-blur-md rounded-2xl overflow-hidden hover-card transition duration-300">
-        <div class="aspect-video">
-          <iframe class="w-full h-full" src="https://www.youtube.com/embed/LXb3EKWsInQ" title="アニメ作品3"
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <!-- カード2 -->
+      <div class="card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl transition" 
+           data-title="『星灯りの約束』" 
+           data-video="https://www.youtube.com/embed/ysz5S6PUM-U"
+           data-intro="満天の星空を旅する少女が、失われた約束を探し続ける幻想的ファンタジー。"
+           data-comment="星の動きを表現するため、実際の天体軌道を参考にしました。">
+        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/ysz5S6PUM-U"></iframe>
+        <div class="p-4">
+          <h3 class="text-lg font-bold">『星灯りの約束』</h3>
+          <p class="text-sm mt-2">夜空を旅する少女が、星と語り合う不思議な旅。</p>
+          <a href="staff.html" class="text-blue-500 hover:underline text-sm">スタッフ紹介へ</a>
         </div>
-        <div class="p-5">
-          <h3 class="text-xl font-bold mb-2">『星屑の手紙』</h3>
-          <p class="text-white/90 text-sm mb-4">亡き父の手紙を追って旅をする少年少女の物語。手描き風の柔らかい映像美。</p>
-          <a href="staff.html" class="inline-block mt-2 bg-white text-pink-500 font-bold px-5 py-2 rounded-full">スタッフを見る</a>
+      </div>
+
+      <!-- カード3 -->
+      <div class="card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl transition" 
+           data-title="『水面に映る夢』" 
+           data-video="https://www.youtube.com/embed/jNQXAC9IVRw"
+           data-intro="沈んだ都市で目覚めた少女が、記憶を辿るSFドラマ。"
+           data-comment="水中表現に挑戦した意欲作。レンダリングは3日かかりました（笑）。">
+        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/jNQXAC9IVRw"></iframe>
+        <div class="p-4">
+          <h3 class="text-lg font-bold">『水面に映る夢』</h3>
+          <p class="text-sm mt-2">水中都市で描かれる、孤独と希望のSFアニメーション。</p>
+          <a href="staff.html" class="text-blue-500 hover:underline text-sm">スタッフ紹介へ</a>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- ===== フッター ===== -->
-  <footer class="text-center py-8 text-white/80 text-sm fade-in">
-    <div class="mb-4">
-      <a href="join.html" class="bg-white text-sky-500 font-bold px-6 py-2 rounded-full hover:bg-sky-100 transition">スタッフ募集</a>
+  <!-- モーダル -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-xl shadow-xl w-11/12 md:w-2/3 lg:w-1/2 p-6 relative transform scale-95 opacity-0 transition-all duration-300">
+      <button id="closeModal" class="absolute top-3 right-3 text-gray-600 text-2xl">&times;</button>
+      <div id="modalContent" class="space-y-4"></div>
     </div>
-    <p>© 2025 Studio Nanafusa</p>
-  </footer>
+  </div>
 
-  <!-- ===== アニメーション ===== -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      anime({
-        targets: '.fade-in',
-        opacity: [0, 1],
-        translateY: [20, 0],
-        delay: anime.stagger(200),
-        duration: 1000,
-        easing: 'easeOutQuad'
-      });
-    });
-  </script>
+  <script src="../assets/js/nanafusa.js"></script>
 </body>
 </html>
