@@ -34,30 +34,59 @@
   <main class="flex-grow container mx-auto px-6 py-10 fade-in">
     <div class="grid md:grid-cols-3 gap-10">
       
-      <!-- スタッフ① -->
+      <!-- スタッフ① sizen -->
       <div class="bg-white/20 backdrop-blur-md rounded-2xl overflow-hidden hover-card transition duration-300 text-center p-5">
         <img src="assets/img/staff/member1.jpg" alt="スタッフ1" class="w-32 h-32 mx-auto rounded-full mb-3 object-cover">
         <h3 class="text-xl font-bold mb-1">sizen</h3>
         <p class="text-white/90 mb-3">東大アニメ研究ゼミ</p>
-        <p class="text-white/90 mb-3">監督(My Friend)・色指定・演出・作画・背景美術・撮影</p>
-        <button class="bg-white text-pink-500 font-bold px-4 py-2 rounded-full modal-open" data-member="1">楽しい作品になるといいです。</button>
+        <p class="text-white/90 mb-3">監督(My Friend)・色指定・演出・作画・背景美術・3D・撮影</p>
+        <p class="mb-3">
+          <a href="https://x.com/study36232?s=21" target="_blank" class="text-white underline hover:text-gray-200">
+            X（Twitter）
+          </a>
+        </p>
+        <button class="bg-white text-pink-500 font-bold px-4 py-2 rounded-full modal-open" data-member="1">詳細</button>
       </div>
 
-      <!-- スタッフ② -->
+      <!-- スタッフ② コウセイ -->
       <div class="bg-white/20 backdrop-blur-md rounded-2xl overflow-hidden hover-card transition duration-300 text-center p-5">
         <img src="assets/img/staff/member2.jpg" alt="スタッフ2" class="w-32 h-32 mx-auto rounded-full mb-3 object-cover">
         <h3 class="text-xl font-bold mb-1">コウセイ</h3>
         <p class="text-white/90 mb-3">東大アニメ研究ゼミ</p>
         <p class="text-white/90 mb-3">企画・コンテ・脚本・監督(大海探検記)・撮影・作画・編集</p>
+        <p class="mb-3">
+          <a href="https://x.com/ko_cre8" target="_blank" class="text-white underline hover:text-gray-200">
+            X（Twitter）
+          </a>
+        </p>
         <button class="bg-white text-pink-500 font-bold px-4 py-2 rounded-full modal-open" data-member="2">詳細</button>
       </div>
 
-      <!-- スタッフ③ -->
+      <!-- スタッフ③ やまもと -->
       <div class="bg-white/20 backdrop-blur-md rounded-2xl overflow-hidden hover-card transition duration-300 text-center p-5">
         <img src="assets/img/staff/member3.jpg" alt="スタッフ3" class="w-32 h-32 mx-auto rounded-full mb-3 object-cover">
-        <h3 class="text-xl font-bold mb-1">高橋 一郎</h3>
-        <p class="text-white/90 mb-3">編集・音響</p>
+        <h3 class="text-xl font-bold mb-1">やまもと</h3>
+        <p class="text-white/90 mb-3">東大アニメ研究ゼミ</p>
+        <p class="text-white/90 mb-3">脚本・仕上げ・制作進行</p>
         <button class="bg-white text-pink-500 font-bold px-4 py-2 rounded-full modal-open" data-member="3">詳細</button>
+      </div>
+
+      <!-- スタッフ④ おきだんご -->
+      <div class="bg-white/20 backdrop-blur-md rounded-2xl overflow-hidden hover-card transition duration-300 text-center p-5">
+        <img src="assets/img/staff/member4.jpg" alt="スタッフ4" class="w-32 h-32 mx-auto rounded-full mb-3 object-cover">
+        <h3 class="text-xl font-bold mb-1">おきだんご</h3>
+        <p class="text-white/90 mb-3">千葉大アニ研</p>
+        <p class="text-white/90 mb-3">背景・編集</p>
+        <button class="bg-white text-pink-500 font-bold px-4 py-2 rounded-full modal-open" data-member="4">詳細</button>
+      </div>
+
+      <!-- スタッフ⑤ 齋藤 -->
+      <div class="bg-white/20 backdrop-blur-md rounded-2xl overflow-hidden hover-card transition duration-300 text-center p-5">
+        <img src="assets/img/staff/member5.jpg" alt="スタッフ5" class="w-32 h-32 mx-auto rounded-full mb-3 object-cover">
+        <h3 class="text-xl font-bold mb-1">齋藤</h3>
+        <p class="text-white/90 mb-3">東大アニメ研究ゼミ</p>
+        <p class="text-white/90 mb-3">レイアウト・動画</p>
+        <button class="bg-white text-pink-500 font-bold px-4 py-2 rounded-full modal-open" data-member="5">詳細</button>
       </div>
 
     </div>
@@ -70,6 +99,7 @@
       <h3 class="text-2xl font-bold mb-2" id="modal-name"></h3>
       <p class="text-white/90 mb-2" id="modal-role"></p>
       <p class="text-white/80" id="modal-desc"></p>
+      <div id="modal-sns" class="mt-3"></div>
     </div>
   </div>
 
@@ -93,25 +123,64 @@
       });
     });
 
-    // スタッフ詳細モーダル
+    // スタッフ詳細データ
     const staffData = {
-      1: { name: "sizen", role: "監督・演出・背景美術・撮影・作監・3D・キャラデザ", desc: "自分or作品毎のコメントなど" },
-      2: { name: "佐藤 花子", role: "作画・キャラクターデザイン", desc: "キャラクターデザイン・作画監修を担当。色彩設計も担当。" },
-      3: { name: "高橋 一郎", role: "編集・音響", desc: "映像編集と音響効果を担当。仕上げとBGM選定も行う。" }
+      1: {
+        name: "sizen",
+        role: "監督(My Friend)・色指定・演出・作画・背景美術・3D・撮影",
+        desc: "楽しい作品になるといいです。",
+        sns: "https://x.com/study36232?s=21"
+      },
+      2: {
+        name: "コウセイ",
+        role: "企画・コンテ・脚本・監督(大海探検記)・撮影・作画・編集",
+        desc: "長編アニメーション映画作りたい",
+        sns: "https://x.com/ko_cre8"
+      },
+      3: {
+        name: "やまもと",
+        role: "脚本・仕上げ・制作進行",
+        desc: "ぜひキャラの動きに注目してみてください！"
+      },
+      4: {
+        name: "おきだんご",
+        role: "背景・編集",
+        desc: "千葉大アニ研のほうも是非見に来てください！"
+      },
+      5: {
+        name: "齋藤",
+        role: "レイアウト・動画",
+        desc: "頑張ります！"
+      }
     };
 
     const modal = document.getElementById('modal');
     const modalName = document.getElementById('modal-name');
     const modalRole = document.getElementById('modal-role');
     const modalDesc = document.getElementById('modal-desc');
+    const modalSNS = document.getElementById('modal-sns');
 
+    // モーダル開閉
     document.querySelectorAll('.modal-open').forEach(btn => {
       btn.addEventListener('click', () => {
         const id = btn.dataset.member;
         const data = staffData[id];
+
         modalName.textContent = data.name;
         modalRole.textContent = data.role;
         modalDesc.textContent = data.desc;
+
+        // SNS（ある人だけ表示）
+        if (data.sns) {
+          modalSNS.innerHTML = `
+            <a href="${data.sns}" target="_blank" class="underline text-white hover:text-gray-200">
+              ▶ SNSアカウントはこちら
+            </a>
+          `;
+        } else {
+          modalSNS.innerHTML = "";
+        }
+
         modal.style.display = 'flex';
       });
     });
@@ -121,7 +190,7 @@
     });
 
     window.addEventListener('click', (e) => {
-      if(e.target === modal) modal.style.display = 'none';
+      if (e.target === modal) modal.style.display = 'none';
     });
   </script>
 </body>
