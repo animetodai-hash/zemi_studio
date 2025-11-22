@@ -8,31 +8,53 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+
   <style>
     body { font-family: 'Noto Sans JP', sans-serif; background: linear-gradient(to bottom right, #7DD3FC, #F9A8D4); color: #fff; min-height: 100vh; }
     header { font-family: 'Poppins', sans-serif; }
     .fade-in { opacity: 0; }
-    iframe { border: none; border-radius: 1rem; }
   </style>
 </head>
 
 <body class="flex flex-col min-h-screen">
 
-  <!-- ヘッダー -->
+  <!-- ヘッダー（そのまま） -->
   <header class="text-center py-12 fade-in">
     <h1 class="text-4xl md:text-5xl font-bold mb-2">問い合わせ</h1>
     <p class="text-white/90 text-lg">ゼミ参加や質問はこちらから</p>
   </header>
 
-  <!-- Googleフォーム埋め込み -->
+  <!-- ===== メール・マシュマロに変更した部分 ===== -->
   <main class="flex-grow container mx-auto px-6 py-10 fade-in">
-    <div class="max-w-3xl mx-auto bg-white/20 backdrop-blur-md rounded-2xl p-6">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd652-mAz-hZHwaOb7wEe7iQs92oZpt9Kv5JNmbWc4fE/viewform?embedded=true"
-              width="100%" height="1000"></iframe>
+    <div class="max-w-3xl mx-auto bg-white/20 backdrop-blur-md rounded-2xl p-6 space-y-8">
+
+      <!-- メール -->
+      <div class="p-5 bg-white/30 backdrop-blur-md rounded-xl shadow-md">
+        <h2 class="text-2xl font-bold mb-2">📧 メールで問い合わせ</h2>
+        <p class="text-white/90 mb-3">ゼミや活動への質問はこちらへどうぞ。</p>
+
+        <a href="mailto:anime.todai@gmail.com"
+           class="inline-block bg-white text-pink-600 font-bold px-6 py-3 rounded-full hover:bg-pink-50 transition">
+          anime.todai@gmail.com
+        </a>
+      </div>
+
+      <!-- マシュマロ -->
+      <div class="p-5 bg-white/30 backdrop-blur-md rounded-xl shadow-md">
+        <h2 class="text-2xl font-bold mb-2">🍡 マシュマロで質問</h2>
+        <p class="text-white/90 mb-3">匿名で気軽に質問したい場合はこちら。</p>
+
+        <a href="https://marshmallow-qa.com/jebewd1w2t07pmz?t=dKmlqL&utm_medium=url_text&utm_source=promotion"
+           target="_blank"
+           class="inline-block bg-white text-sky-600 font-bold px-6 py-3 rounded-full hover:bg-sky-50 transition">
+          マシュマロへ投稿する
+        </a>
+      </div>
+
     </div>
   </main>
 
-  <!-- フッター -->
+  <!-- フッター（そのまま） -->
   <footer class="text-center py-8 text-white/80 fade-in">
     <a href="index.html" class="bg-white text-sky-500 font-bold px-6 py-2 rounded-full hover:bg-sky-100 transition">ゼミトップへ</a>
     <p class="mt-4">© 2025 東大アニメ研究ゼミ</p>
