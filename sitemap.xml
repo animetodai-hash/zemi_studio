@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- トップページ -->
+  <url>
+    <loc>https://animetodai-hash.github.io/zemi_studio/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- アニメゼミページ群 -->
+  <url>
+    <loc>https://animetodai-hash.github.io/zemi_studio/animezemi/index.html</loc>
+  </url>
+  <url>
+    <loc>https://animetodai-hash.github.io/zemi_studio/animezemi/anigaru.html</loc>
+  </url>
+  <url>
+    <loc>https://animetodai-hash.github.io/zemi_studio/animezemi/events.html</loc>
+  </url>
+  <url>
+    <loc>https://animetodai-hash.github.io/zemi_studio/animezemi/contact.html</loc>
+  </url>
+
+  <!-- スタジオななふさページ群 -->
+  <url>
+    <loc>https://animetodai-hash.github.io/zemi_studio/nanafusa/index.html</loc>
+  </url>
+  <url>
+    <loc>https://animetodai-hash.github.io/zemi_studio/nanafusa/join.html</loc>
+  </url>
+  <url>
+    <loc>https://animetodai-hash.github.io/zemi_studio/nanafusa/staff.html</loc>
+  </url>
+  <url>
+    <loc>https://animetodai-hash.github.io/zemi_studio/nanafusa/work.html</loc>
+  </url>
+
+</urlset>
