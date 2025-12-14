@@ -1,0 +1,22 @@
+<!-- 共通 head テンプレ（☆をページごとに変える） -->
+
+<title>☆PAGE_TITLE☆ | 東大アニメ研究ゼミ × スタジオななふさ</title>
+
+<meta name="description" content="☆PAGE_DESCRIPTION☆">
+
+<link rel="canonical" href="https://animetodai-hash.github.io/zemi_studio/☆PATH☆">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="東大アニメ研究ゼミ × スタジオななふさ">
+<meta property="og:title" content="☆PAGE_TITLE☆ | 東大アニメ研究ゼミ × スタジオななふさ">
+<meta property="og:description" content="☆PAGE_DESCRIPTION☆">
+<meta property="og:url" content="https://animetodai-hash.github.io/zemi_studio/☆PATH☆">
+<meta property="og:image" content="https://animetodai-hash.github.io/zemi_studio/img/ogp.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="☆PAGE_TITLE☆ | 東大アニメ研究ゼミ × スタジオななふさ">
+<meta name="twitter:description" content="☆PAGE_DESCRIPTION☆">
+<meta name="twitter:image" content="https://animetodai-hash.github.io/zemi_studio/img/ogp.png">
+
+-----------------------------------------------------------------
