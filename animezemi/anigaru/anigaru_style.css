@@ -1,28 +1,30 @@
 /* =========================
-   0) Base / Reset
+   0) Base / Reset + Tokens
 ========================= */
 * { box-sizing: border-box; }
 
 :root{
+  /* colors */
   --bg: #fffbe6;
   --bg-strong: #fff3b0;
   --bg-hero: #fff9cc;
+
   --text: #111827;
   --text-sub: #374151;
+
   --accent: #b91c1c;
   --accent-2: #dc2626;
+
   --border: #e5e7eb;
   --yellow-frame: #fde047;
 
-  /* unified components */
-  --card-radius: 20px;
-  --card-pad: 32px;
+  /* components */
+  --radius: 20px;
+  --radius-sm: 14px;
+  --pad: 32px;
   --shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
 }
 
-/* =========================
-   1) Body / Typography
-========================= */
 body{
   margin: 0;
   font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -31,14 +33,14 @@ body{
   line-height: 1.8;
 }
 
-/* Tailwindの white 系を黒に戻す */
+/* Tailwind white系の打ち消し（必要最小限） */
 .text-white,
 .text-white\/90{
   color: var(--text) !important;
 }
 
 /* =========================
-   2) Site Header (nav bar)
+   1) Header / Hero
 ========================= */
 .site-header{
   background: var(--bg-strong);
@@ -46,9 +48,6 @@ body{
   font-family: "Poppins", sans-serif;
 }
 
-/* =========================
-   3) Page Hero (title area)
-========================= */
 section.text-center{
   background: var(--bg-hero);
 }
@@ -67,16 +66,23 @@ section.text-center p{
 }
 
 /* =========================
-   4) Unified Layout Components
-   - ここが「協賛ページのかっこよさ」を両ページに適用する本体
+   2) Cards / Sections (unified)
 ========================= */
 .page-card{
   background: #fff;
-  border-radius: var(--card-radius);
-  padding: var(--card-pad);
+  border-radius: var(--radius);
+  padding: var(--pad);
   box-shadow: var(--shadow);
 }
 
+/* 旧構造互換：bg-white/20 を白カードに */
+.bg-white\/20{
+  background: #fff;
+  color: var(--text);
+  backdrop-filter: none;
+}
+
+/* セクションブロック（協賛ページの雰囲気を統一） */
 .section-block{
   padding: 28px 0;
   border-bottom: 1px solid var(--border);
@@ -87,7 +93,7 @@ section.text-center p{
   padding-bottom: 0;
 }
 
-/* “アニガる！とは”みたいなセクション見出しを統一 */
+/* “アニガる！とは”など：イベントページの良さを維持しつつ統一 */
 .section-title{
   display: flex;
   align-items: center;
@@ -101,71 +107,37 @@ section.text-center p{
   letter-spacing: 0.02em;
 }
 
-/* セクションの導入文（薄い説明文） */
+.section-subtitle{
+  margin-top: 28px;
+  margin-bottom: 12px;
+  color: var(--accent-2);
+  font-weight: 800;
+  font-size: 1.15rem;
+}
+
 .section-lead{
   color: var(--text-sub);
   margin: 0 0 14px;
 }
 
-/* =========================
-   5) Main Card / Content
-========================= */
-/* Tailwind bg-white/20 を白カードに置換（旧構造の互換用） */
-.bg-white\/20{
-  background: #fff;
-  color: var(--text);
-  backdrop-filter: none;
-}
-
-/* Section rhythm（読みやすい行間・余白） */
-main h2{
-  margin-top: 48px;
-  margin-bottom: 16px;
-}
-main h2:first-of-type{ margin-top: 0; }
-
-main p{ margin-bottom: 16px; }
-
-main ul{
-  margin-top: 8px;
-  margin-bottom: 24px;
+/* 読みやすい余白（Tailwindのmb系に依存しない） */
+.page-card p{ margin: 0 0 16px; }
+.page-card ul{
+  margin: 8px 0 24px;
   padding-left: 1.2em;
 }
-main li{ margin-bottom: 8px; }
-
-main h3{
-  margin-top: 28px;
-  margin-bottom: 12px;
-}
+.page-card li{ margin-bottom: 8px; }
 
 /* =========================
-   6) Headings / Emphasis
-   - 既存の h2/h3 は残す（旧ページ用）
-   - 新ページは section-title を使う想定
+   3) Emphasis blocks
 ========================= */
-h2{
-  font-size: 1.6rem;
-  font-weight: 700;
-  padding-left: 12px;
-  color: var(--accent);
-  border-left: 6px solid var(--accent);
-}
-
-h3{
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--accent-2);
-}
-
-/* 強調は赤 */
 strong{ color: var(--accent); }
 
-/* 強調ブロック（協賛ページ風に統一） */
 .emphasis,
 .notice,
 .important{
   margin: 16px 0 24px;
-  border-radius: 14px;
+  border-radius: var(--radius-sm);
   padding: 16px 18px;
 }
 
@@ -183,7 +155,7 @@ strong{ color: var(--accent); }
   font-weight: 700;
 }
 
-/* CTAブロック */
+/* CTA（中央寄せ） */
 .cta-row{
   display: flex;
   justify-content: center;
@@ -191,19 +163,21 @@ strong{ color: var(--accent); }
 }
 
 /* =========================
-   7) Tables
+   4) Tables (wrapper + base)
 ========================= */
 .table-wrap{
+  width: 100%;
   margin-top: 12px;
-  border-radius: 14px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1px solid var(--border);
 }
 
+/* 共通テーブル（互換のため schedule-table をベースにする） */
 .schedule-table{
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 32px;
+  table-layout: fixed; /* 列ズレ防止 */
   font-size: 0.95rem;
 }
 
@@ -214,17 +188,59 @@ strong{ color: var(--accent); }
   color: var(--text);
   padding: 12px;
   text-align: left;
-  font-weight: 700;
+  font-weight: 800;
+  border-bottom: 2px solid var(--border);
 }
 
 .schedule-table td{
   background: #fff;
-  border-bottom: 1px solid var(--border);
   padding: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* 最終行の下線を消す（見た目が締まる） */
+.schedule-table tbody tr:last-child td{
+  border-bottom: none;
+}
+
+/* ==== 日程表（2列） ==== */
+.schedule-table.is-flow th:first-child,
+.schedule-table.is-flow td:first-child{
+  width: 20%;
+  padding-right: 10px;
+  white-space: nowrap;
+}
+
+.schedule-table.is-flow th:last-child,
+.schedule-table.is-flow td:last-child{
+  width: 80%;
+  padding-left: 10px;
+  word-break: break-word;
+}
+
+/* ==== 予算表（3列） ==== */
+.schedule-table.is-budget th:nth-child(1),
+.schedule-table.is-budget td:nth-child(1){
+  width:  15%;
+  padding-right: 10px;
+  white-space: normal;
+}
+
+.schedule-table.is-budget th:nth-child(2),
+.schedule-table.is-budget td:nth-child(2){
+  width: 10%;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.schedule-table.is-budget th:nth-child(3),
+.schedule-table.is-budget td:nth-child(3){
+  width: 75%;
+  word-break: break-word;
 }
 
 /* =========================
-   8) Images
+   5) Images
 ========================= */
 .center-img{
   display: block;
@@ -235,7 +251,6 @@ strong{ color: var(--accent); }
   border: 4px solid var(--yellow-frame);
 }
 
-/* 予算画像：中央寄せ＋サイズ調整 */
 .budget-image{
   display: flex;
   justify-content: center;
@@ -244,22 +259,22 @@ strong{ color: var(--accent); }
 
 .budget-image img{
   width: 100%;
-  max-width: 720px; /* ← 基本はここだけ触る */
+  max-width: 720px;
   height: auto;
   border-radius: 12px;
 }
 
 /* =========================
-   9) Links / Buttons
+   6) Links / Buttons
 ========================= */
 .cf-link{
   color: var(--accent);
-  font-weight: 700;
+  font-weight: 800;
   text-decoration: underline;
 }
 .cf-link:hover{ opacity: 0.85; }
 
-/* Tailwindの白ボタンを赤に統一 */
+/* Tailwindの白ボタンを赤に */
 a.inline-block.bg-white{
   background: var(--accent-2) !important;
   color: #fff !important;
@@ -269,7 +284,7 @@ a.inline-block.bg-white:hover{
 }
 
 /* =========================
-   10) Footer
+   7) Footer
 ========================= */
 footer{
   background: var(--bg-strong);
@@ -280,7 +295,7 @@ footer{
 }
 
 /* =========================
-   11) Responsive
+   8) Responsive
 ========================= */
 @media (max-width: 640px){
   section.text-center h1{ font-size: 2.4rem; }
@@ -288,11 +303,30 @@ footer{
 
   .center-img{ max-width: 90%; }
 
-  h2{ font-size: 1.4rem; }
+  .page-card{ padding: 22px; }
   .section-title{ font-size: 1.45rem; }
+  .section-block{ padding: 22px 0; }
 
   .budget-image img{ max-width: 95%; }
 
-  .page-card{ padding: 22px; }
-  .section-block{ padding: 22px 0; }
+  /* 日程表（2列）スマホ最適化 */
+  .schedule-table.is-flow th:first-child,
+  .schedule-table.is-flow td:first-child{
+    width: 38%;
+    white-space: normal;
+  }
+  .schedule-table.is-flow th:last-child,
+  .schedule-table.is-flow td:last-child{
+    width: 62%;
+  }
+
+  /* 予算表（3列）スマホ最適化 */
+  .schedule-table.is-budget th:nth-child(1),
+  .schedule-table.is-budget td:nth-child(1){ width: 34%; }
+
+  .schedule-table.is-budget th:nth-child(2),
+  .schedule-table.is-budget td:nth-child(2){ width: 20%; }
+
+  .schedule-table.is-budget th:nth-child(3),
+  .schedule-table.is-budget td:nth-child(3){ width: 46%; }
 }
