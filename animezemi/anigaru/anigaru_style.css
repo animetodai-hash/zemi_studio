@@ -296,3 +296,25 @@ footer{
   .page-card{ padding: 22px; }
   .section-block{ padding: 22px 0; }
 }
+
+/* テーブルの列幅を固定して、日ごとのズレを消す */
+.table-wrap { width: 100%; }
+
+.schedule-table {
+  width: 100%;
+  table-layout: fixed; /* ←これが効く */
+}
+
+/* 1列目（プログラム）は幅を固定 */
+.schedule-table th:first-child,
+.schedule-table td:first-child {
+  width: 10%;
+  white-space: nowrap; /* 行を増やしたくなければ */
+}
+
+/* 2列目（内容）は残り全部。長文は折り返す */
+.schedule-table th:last-child,
+.schedule-table td:last-child {
+  width: 72%;
+  word-break: break-word;
+}
