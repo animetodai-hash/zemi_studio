@@ -325,12 +325,12 @@ footer{
 @media (max-width: 640px) {
   .schedule-table th:first-child,
   .schedule-table td:first-child {
-    width: 28%;          /* ← スマホでは広く */
+    width: 50%;          /* ← スマホでは広く */
     white-space: normal; /* ← 折り返し許可（重要） */
   }
 
   .schedule-table th:last-child,
   .schedule-table td:last-child {
-    width: 72%;
+    width: 50%;
   }
 }
