@@ -52,59 +52,97 @@
         <h2 class="section-title">協賛金の使途（合計100万円）</h2>
 
         <!-- 予算内訳表 -->
-        <div class="table-wrap overflow-x-auto">
-          <table class="schedule-table">
-            <thead>
-              <tr>
-                <th>項目</th>
-                <th>金額</th>
-                <th>内容</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>会場費</td>
-                <td>30万円</td>
-                <td>3日間の会場レンタル、付帯設備費</td>
-              </tr>
-              <tr>
-                <td>制作備品・運営備品購入費</td>
-                <td>15万円</td>
-                <td>制作・運営に必要な備品、消耗品等</td>
-              </tr>
-              <tr>
-                <td>運営管理費（CF手数料等）</td>
-                <td>15万円</td>
-                <td>クラウドファンディング手数料、決済・事務費</td>
-              </tr>
-              <tr>
-                <td>賞金</td>
-                <td>10万円</td>
-                <td>優勝・準優勝チームへの賞金</td>
-              </tr>
-              <tr>
-                <td>講師・審査員謝金／交通費</td>
-                <td>10万円</td>
-                <td>講評・審査対応、交通費</td>
-              </tr>
-              <tr>
-                <td>広告宣伝費</td>
-                <td>10万円</td>
-                <td>SNS広報、告知素材制作</td>
-              </tr>
-              <tr>
-                <td>印刷費</td>
-                <td>5万円</td>
-                <td>チラシ、当日配布資料等</td>
-              </tr>
-              <tr>
-                <td>通信・輸送費</td>
-                <td>5万円</td>
-                <td>連絡費、発送・配送費</td>
-              </tr>
-            </tbody>
-          </table>
+        <!-- 予算内訳表（Tailwindのみ） -->
+        <!-- 予算内訳表（Tailwindのみ / 角丸のグレー枠 + ヘッダー黄色） -->
+        <div class="overflow-x-auto">
+          <div class="rounded-xl border border-gray-300 overflow-hidden">
+            <table class="w-full min-w-[720px] table-fixed border-collapse text-left text-sm">
+              <thead>
+                <tr class="bg-yellow-300">
+                  <th class="w-[22%] px-4 py-3 font-semibold align-top whitespace-normal break-words">
+                    項目
+                  </th>
+                  <th class="w-[14%] px-4 py-3 font-semibold align-top whitespace-nowrap">
+                    金額
+                  </th>
+                  <th class="w-[64%] px-4 py-3 font-semibold align-top whitespace-normal break-words">
+                    内容
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody class="divide-y divide-gray-200 bg-white">
+                <tr>
+                  <td class="px-4 py-3 align-top whitespace-normal break-words leading-relaxed">会場費</td>
+                  <td class="px-4 py-3 align-top whitespace-nowrap">30万円</td>
+                  <td class="px-4 py-3 align-top whitespace-normal break-words leading-relaxed">
+                    3日間の会場レンタル、付帯設備費
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-3 align-top whitespace-normal break-words leading-relaxed">制作備品・運営備品購入費</td>
+                  <td class="px-4 py-3 align-top whitespace-nowrap">15万円</td>
+                  <td class="px-4 py-3 align-top whitespace-normal break-words leading-relaxed">
+                    制作・運営に必要な備品、消耗品等
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-3 align-top whitespace-normal break-words leading-relaxed">運営管理費（CF手数料等）</td>
+                  <td class="px-4 py-3 align-top whitespace-nowrap">15万円</td>
+                  <td class="px-4 py-3 align-top whitespace-normal break-words leading-relaxed">
+                    クラウドファンディング手数料、決済・事務費
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-3 align-top whitespace-normal break-words leading-relaxed">賞金</td>
+                  <td class="px-4 py-3 align-top whitespace-nowrap">10万円</td>
+                  <td class="px-4 py-3 align-top whitespace-normal break-words leading-relaxed">
+                    優勝・準優勝チームへの賞金
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-3 align-top whitespace-normal break-words leading-relaxed">講師・審査員謝金／交通費</td>
+                  <td class="px-4 py-3 align-top whitespace-nowrap">10万円</td>
+                  <td class="px-4 py-3 align-top whitespace-normal break-words leading-relaxed">
+                    講評・審査対応、交通費
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-3 align-top whitespace-normal break-words leading-relaxed">広告宣伝費</td>
+                  <td class="px-4 py-3 align-top whitespace-nowrap">10万円</td>
+                  <td class="px-4 py-3 align-top whitespace-normal break-words leading-relaxed">
+                    SNS広報、告知素材制作
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-3 align-top whitespace-normal break-words leading-relaxed">印刷費</td>
+                  <td class="px-4 py-3 align-top whitespace-nowrap">5万円</td>
+                  <td class="px-4 py-3 align-top whitespace-normal break-words leading-relaxed">
+                    チラシ、当日配布資料等
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-3 align-top whitespace-normal break-words leading-relaxed">通信・輸送費</td>
+                  <td class="px-4 py-3 align-top whitespace-nowrap">5万円</td>
+                  <td class="px-4 py-3 align-top whitespace-normal break-words leading-relaxed">
+                    連絡費、発送・配送費
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
+
+
+
+        
 
         <!-- 使途イメージ画像 -->
         <div class="budget-image">
