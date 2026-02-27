@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>東大アニメ研究ゼミ | CyberAgent講演会（CA Soa）</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Noto Sans JP', sans-serif; background: linear-gradient(to bottom right, #7DD3FC, #F9A8D4); color: #fff; min-height: 100vh; }
+    header { font-family: 'Poppins', sans-serif; }
+    .fade-in { opacity: 0; }
+    .event-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(255,255,255,0.3); }
+  </style>
+</head>
+
+<body class="min-h-screen">
+    <!-- ヘッダー -->
+  <header class="bg-gradient-to-r from-sky-400 to-pink-400 text-white py-4 shadow-md">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">東大アニメ研究ゼミ</h1>
+      <nav class="space-x-4">
+        <a href="../index.html" class="hover:underline font-semibold">ZEMI / STUDIO ホーム</a>
+        <a href="events.html" class="hover:underline">活動紹介</a>
+        <a href="contact.html" class="hover:underline">問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+
+
+  <!-- Hero -->
+  <section class="max-w-5xl mx-auto px-6 pt-6 pb-8">
+    <div class="fade-in bg-white/15 backdrop-blur-md rounded-3xl p-6 md:p-8 shadow-lg border border-white/20">
+      <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+        <!-- 左：タイトル -->
+        <div class="flex-1">
+          <div class="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm">
+            <span class="font-bold">就活/業界研究イベント</span>
+            <span class="text-white/80">27卒・28卒向け</span>
+          </div>
+
+          <h1 class="mt-4 text-3xl md:text-4xl font-bold leading-tight">
+            スタジオとメーカー、<br class="hidden md:block">
+            それぞれの立場における仕事とアニメ業界の未来
+          </h1>
+
+          <p class="mt-4 text-white/90 leading-relaxed">
+            サイバーエージェントグループ制作スタジオ「CA Soa」と、アニメの企画/宣伝/ビジネス展開を担う
+            「CyberAgent ANIME」より登壇。キャリアや立場の違いから見える「アニメの仕事」と「業界の未来」を、
+            パネルディスカッション形式で語り合い、学生の皆さんと議論します。
+          </p>
+
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="bg-black/20 rounded-2xl p-4 border border-white/15">
+              <div class="text-white/70 text-xs">日時</div>
+              <div class="mt-1 text-lg font-bold">3/9（月）16:30–18:00</div>
+              <div class="text-white/80 text-sm">（オフィスツアー含む）</div>
+            </div>
+            <div class="bg-black/20 rounded-2xl p-4 border border-white/15">
+              <div class="text-white/70 text-xs">会場</div>
+              <div class="mt-1 text-lg font-bold">渋谷 Abema Towers</div>
+              <div class="text-white/80 text-sm">東京都渋谷区宇田川町40-1 / 7F</div>
+            </div>
+            <div class="bg-black/20 rounded-2xl p-4 border border-white/15">
+              <div class="text-white/70 text-xs">想定人数締切</div>
+              <div class="mt-1 text-lg font-bold">40名程度</div>
+            </div>
+            <div class="bg-black/20 rounded-2xl p-4 border border-white/15">
+              <div class="text-white/70 text-xs">形式</div>
+              <div class="mt-1 text-lg font-bold">講義 + パネル + ツアー</div>
+              <div class="text-white/80 text-sm">質疑応答あり</div>
+            </div>
+          </div>
+
+          <!-- 申込ボタン（フォームURLに置換してね） -->
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSezJPJj6MpsgAsW_uMY7gC6BZfrvHASKTCY9ajOrjqgAQ2mMw/viewform"
+
+              class="event-card inline-flex justify-center items-center bg-white text-sky-500 font-bold px-6 py-3 rounded-full hover:bg-sky-100 transition"
+              target="_blank" rel="noopener"
+            >
+              参加申込フォームへ
+            </a>
+          </div>
+        </div>
+
+        <!-- 右：キービジュアル -->
+        <div class="w-full md:w-[340px]">
+          <div class="fade-in bg-black/20 rounded-2xl overflow-hidden border border-white/15 shadow-lg">
+            <!-- ▼ここを自分の画像パスに置換（例: ../assets/img/events/20260309_ca-soa.jpg） -->
+            <img
+              src="../assets/img/events/20260309_ca-soa.jpg"
+              alt="CyberAgent講演会（CA Soa）フライヤー"
+              class="w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="max-w-5xl mx-auto px-6 pb-14">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+  <!-- 内容
+  
+      <div class="fade-in bg-white/15 backdrop-blur-md rounded-3xl p-6 shadow-lg border border-white/20">
+        <h2 class="text-xl font-bold">登壇者</h2>
+        <div class="mt-4 space-y-4">
+          <div class="bg-black/20 rounded-2xl p-4 border border-white/15">
+            <div class="font-bold">小川（CA Soa 代表 / 制作プロデューサー）</div>
+            <div class="text-white/85 text-sm mt-1">
+              元サンライズ／スタジオで制作プロデューサー。東大出身。
+            </div>
+          </div>
+          <div class="bg-black/20 rounded-2xl p-4 border border-white/15">
+            <div class="font-bold">青村（CyberAgent ANIME 統括）</div>
+            <div class="text-white/85 text-sm mt-1">
+              サイバーエージェント新卒入社。アニメ局を統括。
+            </div>
+          </div>
+          <div class="bg-black/20 rounded-2xl p-4 border border-white/15">
+            <div class="font-bold">司会</div>
+            <div class="text-white/85 text-sm mt-1">
+              山口（CyberAgent ANIME / ビジネスプロデューサー）<br>
+              小川（CyberAgent / 人事）
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-in bg-white/15 backdrop-blur-md rounded-3xl p-6 shadow-lg border border-white/20">
+        <h2 class="text-xl font-bold">当日の流れ（予定）</h2>
+        <ol class="mt-4 space-y-3 text-white/90">
+          <li class="bg-black/20 rounded-2xl p-4 border border-white/15">
+            <div class="font-bold">1) オープニング（約10分）</div>
+            <div class="text-sm text-white/80">司会：小川・山口</div>
+          </li>
+          <li class="bg-black/20 rounded-2xl p-4 border border-white/15">
+            <div class="font-bold">2) 自己紹介（約5分）</div>
+            <div class="text-sm text-white/80">青村 → 小川</div>
+          </li>
+          <li class="bg-black/20 rounded-2xl p-4 border border-white/15">
+            <div class="font-bold">3) CAのアニメ戦略（約10分）</div>
+            <div class="text-sm text-white/80">青村</div>
+          </li>
+          <li class="bg-black/20 rounded-2xl p-4 border border-white/15">
+            <div class="font-bold">4) アニメ制作の今後（約10分）</div>
+            <div class="text-sm text-white/80">小川</div>
+          </li>
+          <li class="bg-black/20 rounded-2xl p-4 border border-white/15">
+            <div class="font-bold">5) 質疑応答（約20分）</div>
+            <div class="text-sm text-white/80">事前質問をパネルへ</div>
+          </li>
+          <li class="bg-black/20 rounded-2xl p-4 border border-white/15">
+            <div class="font-bold">6) 追加告知（約5分）</div>
+            <div class="text-sm text-white/80">1day告知 & 3月Soaスタジオツアー</div>
+          </li>
+          <li class="bg-black/20 rounded-2xl p-4 border border-white/15">
+            <div class="font-bold">7) オフィスツアー（約20分）</div>
+            <div class="text-sm text-white/80">
+              11F見学（10分）→ 7Fシアタールームで動画鑑賞（10分）
+            </div>
+          </li>
+        </ol>
+      </div> -->
+
+      <!-- 会場 -->
+      <div class="fade-in bg-white/15 backdrop-blur-md rounded-3xl p-6 shadow-lg border border-white/20 md:col-span-2">
+        <h2 class="text-xl font-bold">会場</h2>
+        <div class="mt-3 text-white/90">
+          株式会社サイバーエージェント（Abema Towers 7F）<br>
+          〒150-0042 東京都渋谷区宇田川町40番1号
+        </div>
+
+        <div class="mt-5 flex flex-col sm:flex-row gap-3">
+          <a
+            class="event-card inline-flex justify-center items-center bg-white text-sky-500 font-bold px-6 py-3 rounded-full hover:bg-sky-100 transition"
+            href="https://www.google.com/maps/search/?api=1&query=Abema%20Towers%20%E5%AE%87%E7%94%B0%E5%B7%9D%E7%94%BA40-1"
+            target="_blank" rel="noopener"
+          >
+            Googleマップで開く
+          </a>
+          <div class="text-xs text-white/70 self-center">
+            ※遅刻や迷子対策で、当日は早めの到着推奨
+          </div>
+        </div>
+      </div>
+
+      <!-- 注意事項 -->
+      <div class="fade-in bg-white/15 backdrop-blur-md rounded-3xl p-6 shadow-lg border border-white/20 md:col-span-2">
+        <h2 class="text-xl font-bold">参加にあたって</h2>
+        <ul class="mt-4 space-y-2 text-white/90 list-disc list-inside">
+          <li>内容・時間配分は当日変更となる可能性があります。</li>
+          <li>事前質問がある場合は、申込フォームの備考欄などに記入してください。</li>
+          <li>オフィスツアーが含まれるため、当日は時間に余裕を持ってご参加ください。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="text-center py-8 text-white/80 fade-in">
+    <a href="../index.html" class="bg-white text-sky-500 font-bold px-6 py-2 rounded-full hover:bg-sky-100 transition">ゼミトップへ</a>
+    <p class="mt-4">© 東大アニメ研究ゼミ</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      anime({
+        targets: '.fade-in',
+        opacity: [0,1],
+        translateY: [20,0],
+        delay: anime.stagger(200),
+        duration: 1000,
+        easing: 'easeOutQuad'
+      });
+    });
+  </script>
+</body>
+</html>
