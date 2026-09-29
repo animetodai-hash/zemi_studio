@@ -3,305 +3,184 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>アニガる！ | 東大アニメ研究ゼミ</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="anigaru/anigaru_style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <meta name="description" content="アニメ制作をガチる合宿！『アニガる！』は2027年3月に開催を計画している、大学生・専門学生のための7日間のアニメ制作合宿です。">
+  <title>アニガる！｜アニメ制作をガチる合宿！｜東大アニメ研究ゼミ</title>
+  <style>
+    :root {
+      color-scheme: light;
+      /* 元サイトの配色 */
+      --bg:#fffbe6; --bg-strong:#fff3b0; --bg-hero:#fff9cc;
+      --text:#111827; --text-sub:#374151; --accent:#b91c1c;
+      --accent-2:#dc2626; --border:#e5e7eb; --yellow-frame:#fde047;
+      --ink:var(--text); --muted:var(--text-sub); --line:var(--border);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:24px; }
+    body { margin:0; color:var(--ink); background:var(--bg); font-family:"Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; line-height:1.9; }
+    a { color:var(--accent); text-underline-offset:4px; }
+    a:hover { text-decoration:underline; }
+    a:focus-visible { outline:3px solid var(--accent); outline-offset:5px; }
+    .skip { position:absolute; left:16px; top:-80px; padding:8px 16px; background:#fff; z-index:2; }
+    .skip:focus { top:12px; }
+    .wrap { width:min(1040px, calc(100% - 40px)); margin-inline:auto; }
+    .site-header { background:var(--bg-strong); border-bottom:3px solid var(--accent-2); }
+    .header-inner { display:flex; justify-content:space-between; align-items:center; gap:20px; padding-block:20px; }
+    .brand { font-weight:800; color:var(--ink); text-decoration:none; }
+    nav { display:flex; flex-wrap:wrap; gap:12px 24px; font-size:.85rem; }
+    nav a { color:var(--ink); text-decoration:none; }
+    .hero { background:var(--bg-hero); padding:68px 0 58px; overflow:hidden; }
+    .eyebrow { color:var(--accent); font-size:.8rem; font-weight:800; letter-spacing:.15em; }
+    .hero h1 { color:var(--accent); margin:8px 0 12px; font-size:clamp(4rem,11vw,7rem); line-height:1.2; letter-spacing:-.06em; }
+    .hero h1 span { color:var(--accent); }
+    .hero-title { font-size:clamp(1.1rem,3vw,1.6rem); font-weight:800; margin:0 0 22px; }
+    .hero-copy { max-width:660px; color:var(--muted); }
+    .hero-meta { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0; }
+    .pill { background:#fff; border:1px solid var(--yellow-frame); border-radius:999px; padding:5px 16px; font-size:.85rem; font-weight:700; }
+    .button { display:inline-block; background:var(--accent-2); color:#fff; padding:11px 24px; border-radius:8px; text-decoration:none; font-weight:700; }
+    .button:hover { background:var(--accent); text-decoration:none; }
+    .button.secondary { background:white; color:var(--accent); border:1px solid var(--accent); }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
+    .notice { margin:30px 0; padding:22px 26px; border:1px solid #fecdd3; background:#fff1f2; border-radius:14px; }
+    .notice h2 { font-size:1.1rem; margin:0 0 8px; }
+    .notice p { margin:0; }
+    .small { font-size:.85rem; color:var(--muted); }
+    .page-nav { padding-bottom:24px; border-bottom:1px solid var(--line); }
+    .section { padding:44px 0; border-bottom:1px solid var(--line); }
+    .section h2 { font-size:clamp(1.5rem,4vw,2rem); line-height:1.5; margin:0 0 22px; }
+    .section h2 .num { color:var(--accent); font-size:.85rem; display:block; letter-spacing:.12em; margin-bottom:6px; }
+    h3 { font-size:1.12rem; line-height:1.6; margin:0 0 10px; }
+    p { margin:0 0 16px; }
+    p:last-child { margin-bottom:0; }
+    ul,ol { padding-left:1.4em; }
+    li + li { margin-top:7px; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .card { padding:26px; background:#fff; border:1px solid var(--line); border-radius:12px; }
+    .card .index { display:block; color:var(--accent); font-size:.85rem; font-weight:800; margin-bottom:14px; }
+    .card p { color:var(--muted); font-size:.95rem; }
+    .facts { margin:24px 0; background:#fff; border:1px solid var(--line); border-radius:12px; padding:8px 26px; }
+    .facts div { display:grid; grid-template-columns:145px 1fr; gap:24px; padding:16px 0; border-bottom:1px solid var(--line); }
+    .facts div:last-child { border:0; }
+    dt { font-weight:700; }
+    dd { margin:0; }
+    .scenario { padding:24px; background:#fff7cc; border-radius:10px; }
+    .principles { list-style:none; padding:0; margin:0; }
+    .principles li { padding:22px 0; border-bottom:1px dashed var(--line); }
+    .principles li:last-child { border-bottom:0; padding-bottom:0; }
+    .principles strong { color:var(--accent); }
+    .timeline { list-style:none; padding:0; margin:26px 0 0; }
+    .timeline > li { display:grid; grid-template-columns:120px 1fr; gap:24px; margin:0; padding:24px 0; border-top:1px solid var(--line); }
+    .day { color:var(--accent); font-weight:800; }
+    .timeline ul { margin-bottom:0; }
+    .workshops { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:24px; }
+    .tag { color:var(--accent); font-size:.85rem; font-weight:700; margin-bottom:10px; }
+    .workshops ul { font-size:.95rem; color:var(--muted); }
+    .contact { margin-top:44px; padding:36px; background:#fff7cc; border-radius:12px; }
+    .contact h2 { margin-top:0; }
+    footer { background:var(--bg-strong); border-top:3px solid var(--accent-2); text-align:center; padding:40px 20px; color:var(--muted); font-size:.85rem; }
+    /* 元サイトの白い本文カード・赤い見出しを維持 */
+    main.wrap { margin-block:32px; padding:8px 32px 32px; background:#fff; border-radius:20px; box-shadow:0 10px 30px rgba(17,24,39,.08); }
+    h2 { color:var(--accent); border-left:6px solid var(--accent); padding-left:12px; }
+    h3 { color:var(--accent-2); }
+    strong { color:var(--accent); }
+    @media(max-width:720px) { main.wrap { padding:8px 22px 24px; } .header-inner { align-items:flex-start; flex-direction:column; gap:10px; } .hero { padding:40px 0; } .grid,.workshops { grid-template-columns:1fr; } .facts div { grid-template-columns:1fr; gap:4px; } .timeline > li { grid-template-columns:1fr; gap:8px; } .section { padding:34px 0; } .contact { padding:24px; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
 </head>
-
-<body class="flex flex-col min-h-screen">
-
-  <!-- ===== ヘッダー ===== -->
-  <header class="py-4 shadow-md site-header">
-    <div class="container mx-auto px-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold">東大アニメ研究ゼミ</h1>
-      <nav class="space-x-4">
-        <a href="../index.html" class="hover:underline font-semibold">ZEMI / STUDIO ホーム</a>
-        <a href="events.html" class="hover:underline">活動紹介</a>
-        <a href="contact.html" class="hover:underline">問い合わせ</a>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../index.html">東大アニメ研究ゼミ</a>
+      <nav aria-label="サイトメニュー">
+        <a href="../index.html">ZEMI / STUDIO ホーム</a>
+        <a href="events.html">活動紹介</a>
+        <a href="contact.html">問い合わせ</a>
       </nav>
     </div>
   </header>
 
-  <!-- タイトル -->
-  <section class="text-center py-10">
-    <h1 class="text-4xl font-bold mb-2">アニガる！</h1>
-    <p class="text-white/90 text-lg line-through">アニメ制作をガチる３日間！</p>
-    <p class="text-white/90 text-xl">開催延期。2026年ゴールデンウィーク開催に向けて、内容をブラッシュアップ中</p>
+  <section class="hero" aria-labelledby="event-title">
+    <div class="wrap">
+      <p class="eyebrow">ANIMATION CAMP / 2027 SPRING</p>
+      <h1 id="event-title">アニガる<span>！</span></h1>
+      <p class="hero-title">アニメ制作をガチる合宿！</p>
+      <p class="hero-copy">「作りたい」を、仲間と作品に。<br>企画から約1分のパイロットアニメ、そして発表まで。<br>学生5人とスタッフ1名のチームで、アニメを作り切る7日間。</p>
+      <div class="hero-meta"><span class="pill">2027年3月 開催予定</span><span class="pill">7日間・泊まり込み</span><span class="pill">大学生・専門学生対象</span></div>
+      <div class="actions"><a class="button" href="#apply">参加・申し込み案内</a><a class="button secondary" href="#overview">開催概要を見る</a></div>
+    </div>
   </section>
 
-  <!-- メイン画像 -->
-  <img
-    src="anigaru/anigaru_postpone.png"
-    alt="「描けなくても、作れる」を目指した短期集中型アニメ制作コンテスト『アニメ制作をガチる３日間！』を開催します！"
-    class="center-img"
-  >
+  <main id="main" class="wrap">
+    <aside class="notice" aria-labelledby="notice-title">
+      <h2 id="notice-title">2027年3月の開催に向けて準備中！</h2>
+      <p>7日間のアニメ制作合宿として開催を計画しています。以下は現時点での予定です。正式な開催日程・会場・参加費・募集方法は、決まり次第このページでお知らせします。</p>
+      <p class="small">更新日：<time datetime="2026-09-29">2026年9月29日</time></p>
+    </aside>
+    <nav class="page-nav" aria-label="ページ内メニュー"><a href="#about">アニガる！とは</a><a href="#overview">開催概要</a><a href="#schedule">制作の流れ</a><a href="#learning">講演・ワークショップ</a><a href="#apply">申し込み案内</a><a href="#contact">お問い合わせ</a></nav>
 
-  
-
-
-  <main class="container mx-auto px-6 py-8">
-
-    <div class="page-card">
-      
-        <!-- ★開催延期のお知らせ -->
-      <section class="section-block">
-        <div class="rounded-2xl border border-white/20 bg-white/10 p-5">
-          <h2 class="text-2xl font-bold mb-2">開催延期のお知らせ</h2>
-          <p class="text-white/90 leading-relaxed">
-            アニガる！は、より良い体験をお届けするため、<strong>開催を延期し内容をブラッシュアップ</strong>することにしました。<br>
-            2026年GW開催を目指し、準備中です。開催日・会場などの確定情報は、準備が整い次第こちらのページで告知します。<br>
-            <span class="text-white/70">更新日：2026年1月13日</span>
-          </p>
-        </div>
-      </section>
-      <!-- <section class="section-block">
-        <div class="cta-row">
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSca3EE-vf2tLe-xIWGKRie3Ke9Z0SOQpIjSaNsD6oxHkVyfLA/viewform?usp=header"
-            target="_blank"
-            class="inline-block bg-white text-sky-500 font-bold px-6 py-3 rounded-full hover:bg-sky-100 transition"
-            rel="noopener noreferrer"
-          >
-            参加登録
-          </a>
-        </div>
-      </section> -->
-
-      <div class="line-through decoration-black/80 decoration-2">
-        <!-- アニガる！とは -->
-        <section class="section-block">
-          <h2 class="section-title">アニガる！とは</h2>
-          <p class="text-white/90 mb-6">
-            アニメ制作をガチる3日間！（略称「アニガる！」）は、学生がチームを組み、3日間という短期間で10秒程度のショートアニメを制作し、競うコンテストです。<br>
-            業界のプロによる講評やアドバイスを受けながら、制作現場さながらの体験ができます。<br>
-            求める力は画力だけではありません！<br>
-            企画力、企画を制作まで持っていく交渉力や表現力、あるいは3Dモデルを動かしたり、作曲能力だったり…全てを駆使して3日間を過ごします。<br>
-            程度は問わず、アニメ業界に興味のある方、アニメ好きと一生涯の絆を作りたい方、大歓迎です！
-          </p>
-        </section>
-
-        <!-- 開催概要 -->
-        <!-- 
-        <section class="section-block">
-          <h2 class="section-title">開催概要</h2>
-          <ul class="list-disc list-inside text-white/90 mb-6">
-            <li>開催日:2025年3月20日09:00〜22日20:00</li>
-            <li>場所:〒150-0002 東京都渋谷区渋谷１丁目１２−７　シブテナスペース 渋谷貸会議室 宮益坂CR-VITE</li>
-            <li>対象:全国の大学生・専門学校生（40名程度）</li>
-          </ul>
-        </section> -->
-
-        <!-- アニガる！３原則 -->
-        <section class="section-block">
-          <h2 class="section-title">アニガる！３原則</h2>
-          <p class="section-lead">
-            「アニガる！３原則」とは、参加者の皆様に持っていただきたい心構えです。その前向きな姿勢で3日間を走り続けられるよう、スタッフ一同全力でサポートいたします。
-          </p>
-
-          <h3><strong>1.「描けない」を、止まる理由にするな！</strong></h3>
-          <p>
-            このコンテストは、絵を普段描かない方も募集対象としています。これはひとえに、様々な方にアニメを作るというハードルの高い体験を提供したいからです。<br>
-            絵が描けなくても簡単な動画を描く、撮影をする、音を入れて作品のクオリティーを上げるといった様々な挑戦をして下さい。
-          </p>
-
-          <h3><strong>2.盤外戦術大歓迎！使えるもの全てを駆使しろ！</strong></h3>
-          <p>
-            制作にあたり、禁止行為は設けていません。これは、あらゆる創意工夫をしていただきたいからです。3Dモデルの動きをトレースするといった特殊な技法から、友人を頼ってメンバーを増やすといったことも禁止しません。<br>
-            あらゆる「自分の力」を発揮することを期待します。
-            ※本イベントでは、著作権その他、第三者の権利を侵害する行為、ならびに社会規範に著しく反する行為を禁止します。なお、AIの使用を含め、制作物の権利関係が不明確な表現・制作行為については認められません（ChatGPTなどのテキスト生成AIを用いたアイデア出しや発想補助については、本イベントでは禁止していません）。
-          </p>
-
-          <h3><strong>3.誰からでも学べ！、経験しろ！</strong></h3>
-          <p>
-            私たちが提供するのは実践を通じてアニメ制作を学ぶ場であると同時に学生同士が交流する場です。3日間の中でプロからもアドバイスをもらいますが、参加者同士で学び合う姿勢を大切にしていただきたいです。<br>
-            アニメという総合芸術を完成させるためには、画力以外の様々な力が求められます。互いの良さを見つけ、吸収し合う3日間にしましょう。
-          </p>
-        </section>
+    <section id="about" class="section">
+      <h2><span class="num">01 / PURPOSE</span>作る意思のある、すべての学生へ。</h2>
+      <p>「アニガる！」は、学生がチームを組み、1からアニメを制作する7日間の合宿です。求める力は画力だけではありません。企画、物語、作画、3D、撮影、編集、音楽、制作進行など、それぞれの得意や興味を持ち寄って、ひとつの作品を完成させます。</p>
+      <div class="grid">
+        <article class="card"><span class="index">01 / 体験する</span><h3>クリエイティブの<br>あらゆる体験を。</h3><p>限られた時間と制約の中で、考え、試し、工夫する。制作のさまざまな過程に挑戦します。</p></article>
+        <article class="card"><span class="index">02 / 作り切る</span><h3>「作りたい」を、<br>完成まで。</h3><p>作る意思のある学生に、仲間と協力してアニメを作り切る体験を届けます。</p></article>
+        <article class="card"><span class="index">03 / つながる</span><h3>制作の先にも続く、<br>仲間とのつながり。</h3><p>共に学び、作品を生み出す7日間から、一生涯続くつながりを育みます。</p></article>
       </div>
+    </section>
 
-      <!-- 3日間の流れ -->
-      <!-- 
-      <section class="section-block">
-        <h2 class="section-title">3日間の流れ</h2>
+    <section id="overview" class="section">
+      <h2><span class="num">02 / OVERVIEW</span>開催概要</h2>
+      <dl class="facts">
+        <div><dt>開催時期</dt><dd>2027年3月の7日間程度（泊まり込み・日程調整中）</dd></div>
+        <div><dt>会場（予定）</dt><dd>国立オリンピック記念青少年総合センター</dd></div>
+        <div><dt>対象・想定規模</dt><dd>大学生・専門学生 20名</dd></div>
+        <div><dt>チーム編成</dt><dd>学生5人＋スタッフ1名で1チーム</dd></div>
+        <div><dt>制作するもの</dt><dd>企画書・プレゼンテーション資料・1分程度のパイロットアニメ</dd></div>
+        <div><dt>最終発表</dt><dd>1チーム合計10分程度（上映とプレゼンテーション）</dd></div>
+        <div><dt>最低催行条件</dt><dd>参加希望者10人以上</dd></div>
+        <div><dt>参加費・募集方法</dt><dd>決まり次第お知らせします。</dd></div>
+      </dl>
+      <div class="scenario"><h3>合宿の設定：新しいアニメ企画のコンペに挑戦！</h3><p>あなたのチームは、新しいアニメ企画を立ち上げるコンペに応募しました。発表は1週間後。企画書とパイロットアニメを制作し、その魅力を10分程度の発表で伝える準備を進めます。</p></div>
+    </section>
 
-        <h3 class="section-subtitle"><strong>1日目</strong></h3>
-        <div class="table-wrap overflow-x-auto">
-          <table class="schedule-table">
-            <thead>
-              <tr>
-                <th>プログラム</th>
-                <th>内容</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>基調講演</td>
-                <td>アニメ業界に携わる方に講演いただきます。</td>
-              </tr>
-              <tr>
-                <td>企画会議</td>
-                <td>制作するアニメの役割分担、設定やストーリーなどを考え、企画書を作成します。</td>
-              </tr>
-              <tr>
-                <td>企画コンサルティング</td>
-                <td>プロの方に企画書を見せて意見をいただきます。</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    <section id="schedule" class="section">
+      <h2><span class="num">03 / SCHEDULE</span>事前準備から、最終発表まで。</h2>
+      <p>制作と学び、交流を組み合わせたプログラムを予定しています。内容・実施日・所要時間は調整中です。</p>
+      <ol class="timeline">
+        <li><div class="day">事前準備<br><span class="small">オンライン</span></div><div><h3>チームの仲間と出会い、道具を知る</h3><p>チームビルディングで、各メンバーの役割や作りたい作品のイメージを共有。制作ツールの基本的な使い方を学ぶ講習会も行います。</p></div></li>
+        <li><div class="day">DAY 1<br><span class="small">企画を始める</span></div><div><h3>開会式・基調講演・企画づくり</h3><p>開会式で制作の条件と審査基準を発表。チームづくりの基調講演、企画・プロット作成のワークショップを通じて、共同制作を始めます。</p><p>企画会議では、コンセプト・キャラクター・世界観・ストーリーを考え、2日目までに所定の企画書を作成します。</p></div></li>
+        <li><div class="day">DAY 2<br><span class="small">企画を磨く</span></div><div><h3>企画コンサルティング</h3><p>企画書を提出し、プロから助言をいただく機会を予定しています。伝わりづらい点や検討が足りない点を見直し、より面白く、制作可能な企画へと磨きます。</p></div></li>
+        <li><div class="day">DAY 3–6<br><span class="small">作品をつくる</span></div><div><h3>アニメ制作・学び・チームを越えた交流</h3><p>企画書、プレゼンテーション資料、1分程度のパイロットアニメを制作。スタッフが伴走し、完成へ向けて進めます。</p><ul><li><strong>作画ワークショップ：</strong>3日目に希望者向けの講座を予定しています。</li><li><strong>異チーム交流会：</strong>チームを越えて卓を囲み、ゲームで交流。好きな作品などを紹介する「異種目対抗ビブリオバトル」を企画中です。話したい題材を事前に考えてきてもらう予定です。</li><li><strong>中間イベント：</strong>アニメ制作資料の展示、絵コンテ・作画・撮影の技術を学ぶワークショップ、軽い運動などのリフレッシュ企画を検討しています。</li></ul></div></li>
+        <li><div class="day">DAY 7<br><span class="small">発表する</span></div><div><h3>発表・審査・閉会式・懇親会</h3><p>企画書を審査員へ提出し、<strong>映像 → プレゼンテーション → 映像</strong>の順で、1チーム合計10分程度の発表を行います。</p><p>結果発表と講評で制作を振り返ったあとは、参加者・スタッフ・講師・審査員など、イベント関係者との懇親会を予定しています。</p></div></li>
+      </ol>
+    </section>
 
-        <h3 class="section-subtitle"><strong>2日目</strong></h3>
-        <div class="table-wrap overflow-x-auto">
-          <table class="schedule-table">
-            <thead>
-              <tr>
-                <th>プログラム</th>
-                <th>内容</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>アニメ制作開始</td>
-                <td>残りの時間でアニメを制作していただきます。</td>
-              </tr>
-              <tr>
-                <td>異チーム交流会</td>
-                <td>他チームと交流を深めつつ、今後のアニメ制作に役立つ景品をかけたゲームをします。</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    <section id="learning" class="section">
+      <h2><span class="num">04 / LEARNING</span>プロの考え方と技術に触れる。</h2>
+      <p>第一線で活躍する方々から、制作の考え方や技術を学ぶプログラムを予定しています。登壇者・実施内容は決定次第お知らせします。</p>
+      <div class="workshops">
+        <article class="card"><p class="tag">1日目 / 約90分・質疑応答含む</p><h3>基調講演<br>よりよいアニメを生み出すチームづくり</h3><p>アニメ制作におけるチームづくりや制作進行を学び、その後の共同制作に生かします。</p><ul><li>作品の目標やイメージを共有する方法</li><li>得意分野を生かした役割分担</li><li>意見の違いや課題への向き合い方</li><li>限られた時間で、質と完成を両立する工夫</li></ul></article>
+        <article class="card"><p class="tag">1日目 / 約2時間</p><h3>企画・プロット作成<br>ワークショップ</h3><p>事例と演習を通じて「何を描き、何を伝えたいか」を整理。期間や人数に見合った物語にまとめます。</p><ul><li>着想の得方と企画の狙いの整理</li><li>始まりから結末までのプロット作成</li><li>登場人物・舞台・場面数の調整</li><li>作成した案の共有と講評</li></ul></article>
+        <article class="card"><p class="tag">3日目 / 約2〜3時間 / 希望者向け</p><h3>作画ワークショップ</h3><p>日頃からイラストなどを描いている参加者を対象に、別室で実施する予定です。参加者の経験や講師の専門に合わせ、アニメーションの作画について学ぶ内容を調整しています。</p></article>
+        <article class="card"><p class="tag">7日目 / 審査・講評 約2時間</p><h3>作品への審査・講評と交流</h3><p>完成度に加え、企画の独自性、表現の工夫、制作を通じた挑戦などを振り返り、次の制作につながる機会を目指します。</p><p>終了後は懇親会を予定。参加者やスタッフ、講師・審査員と制作を振り返り、チームを越えて交流します。</p></article>
+      </div>
+    </section>
 
-        <h3 class="section-subtitle"><strong>3日目</strong></h3>
-        <div class="table-wrap overflow-x-auto">
-          <table class="schedule-table">
-            <thead>
-              <tr>
-                <th>プログラム</th>
-                <th>内容</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>アニメ制作終了</td>
-                <td>午前中いっぱいで制作が終了します。</td>
-              </tr>
-              <tr>
-                <td>上映・審査</td>
-                <td>プロを審査員としてお招きし、審査をしていただきます。</td>
-              </tr>
-              <tr>
-                <td>結果発表</td>
-                <td>上位者には賞金を贈呈いたします！</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-
-      <section class="section-block">
-        <h2 class="section-title">賞金について</h2>
-        <p class="text-white/90 mb-6">
-          監督やプロデューサーなどのプロを審査員として招き、最終日に１位から３位までを発表します。
-          賞金としてチームに以下の賞金を贈呈する予定です。
-        </p>
-        <ul class="list-disc list-inside text-white/90 mb-6">
-          <li>１位：7万円</li>
-          <li>２位：3万円</li>
-        </ul>
-      </section>
-
-
-      <section class="section-block">
-        <h2 class="section-title">参加費について</h2>
-        <p class="text-white/90 mb-6">
-          <strong>参加費は1万円程度を想定しています。</strong>しかし、学生にとってはハードルの高い金額であることは我々も承知しています。イベントを盛り上げるため、賞金を用意していますがそれが参加費の高騰につながるのであれば本末転倒です。<br>
-          そこで、このイベントに興味を持っていただいている皆様へ、情報拡散、イベント登録にご協力いただきたいです。<br>
-          本イベントは、参加者皆様から徴収した参加費と、趣旨に賛同いただいた方・企業様からの協賛およびクラウドファンディングのご支援により開催しています。イベントが拡散され認知度が高まるほど、協賛獲得の後押しとなります。<br>
-          つまり、<strong>SNSで共有され、イベント登録者数が増えれば、イベント参加費が下がるかもしれないのです！</strong><br>
-          参加するか迷っている！という方も、情報拡散へのご協力をどうぞよろしくお願いいたします。<br>
-          <strong>私たちは、たとえ運営資金が十分に集まらずともこのイベントをどうにか開催する所存です。</strong>
-        </p>
-
-        <img
-          src="anigaru/anigaru_cloudfunding.png"
-          alt="アニガる！はクラウドファンディングと協賛金の募集をしています！"
-          class="center-img"
-        >
-        <div class="cta-row">
-          <a
-            href="anigaru_supporter.html"
-            class="inline-block bg-white text-sky-500 font-bold px-6 py-3 rounded-full hover:bg-sky-100 transition"
-          >
-            協賛・ご支援についてはこちら
-          </a>
-        </div>
-      </section>
-
-
-      <section class="section-block">
-        <h2 class="section-title">登録</h2>
-        <p class="text-white/90 mb-4">
-          参加をご希望の方は、以下のフォームから登録をお願いします。<br>
-        </p>
-        <div class="cta-row">
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSca3EE-vf2tLe-xIWGKRie3Ke9Z0SOQpIjSaNsD6oxHkVyfLA/viewform?usp=header"
-            target="_blank"
-            class="inline-block bg-white text-sky-500 font-bold px-6 py-3 rounded-full hover:bg-sky-100 transition"
-            rel="noopener noreferrer"
-          >
-            参加登録
-          </a>
-        </div>
-      </section>
-
-
-      <section class="section-block">
-        <h2 class="section-title">協賛・クラウドファンディングについて</h2>
-        <p class="text-white/90 mb-6">
-          本イベントでは協賛金およびクラウドファンディングによる資金調達を行なっております。目標金額を100万円に設定し、 <strong>目標達成で参加費無料</strong>を実現できます。また、余剰金は広報費などイベントをさらに盛り上げるために使わせていただきたいと思います。<br>
-          協賛含め、ご支援のほど何卒よろしくお願いいたします。
-        </p>
-        <div class="cta-row">
-          <a
-            href="anigaru_supporter.html"
-            class="inline-block bg-white text-sky-500 font-bold px-6 py-3 rounded-full hover:bg-sky-100 transition"
-          >
-            協賛・ご支援についてはこちら
-          </a>
-        </div>
-      </section> -->
-
-      <!-- お問い合わせ先 -->
-      <section class="section-block">
-        <h2 class="section-title">お問い合わせ先</h2>
-        <p>質問・ご不明点などあれば、下記ページよりお気軽にお問い合わせください。</p>
-        <div class="cta-row">
-          <a
-            href="contact.html"
-            class="inline-block bg-white text-sky-500 font-bold px-6 py-3 rounded-full hover:bg-sky-100 transition"
-          >
-            問い合わせ
-          </a>
-        </div>
-      </section>
-
-    </div>
-
-    <div class="text-center mt-10">
-      <a href="events.html" class="bg-white text-pink-500 font-bold px-6 py-2 rounded-full hover:bg-pink-100 transition">
-        ← 活動紹介に戻る
-      </a>
-    </div>
+    <section id="apply" class="contact" aria-labelledby="apply-title">
+      <p class="eyebrow">JOIN US</p>
+      <h2 id="apply-title">その「作りたい」を、アニガる！で。</h2>
+      <p>絵を描くのが好きな人も、物語や音楽で参加したい人も。アニメづくりに挑戦したい大学生・専門学生のみなさんをお待ちしています。</p>
+      <h3>申し込み方法は、後日公開予定です。</h3>
+      <p>募集開始日・申込方法・参加費・正式な開催日程は、決まり次第このページでご案内します。</p>
+      <p class="small">対象：大学生・専門学生 ／ 想定人数：20名 ／ 最低催行条件：参加希望者10人以上</p>
+      <div class="actions"><a class="button" href="contact.html">参加について問い合わせる</a></div>
+    </section>
+    <section id="contact" class="section">
+      <h2>お問い合わせ・ご協力について</h2>
+      <p>イベントに関するご質問や、講演・ワークショップ・審査などへのご協力のご相談は、お問い合わせページからご連絡ください。</p>
+      <div class="actions"><a class="button secondary" href="contact.html">お問い合わせ</a><a class="button secondary" href="events.html">活動紹介に戻る</a></div>
+    </section>
   </main>
-
-  <footer class="text-center py-8 text-white/90">
-    <p>© 東大アニメ研究ゼミ</p>
-  </footer>
-
+  <footer><p>主催：東大アニメ研究ゼミ</p><p>© 東大アニメ研究ゼミ</p></footer>
 </body>
 </html>
